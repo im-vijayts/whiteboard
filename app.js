@@ -1,3 +1,6 @@
+var myCanvas = document.getElementById("myCanvas");
+var ctx = myCanvas.getContext("2d");
+
 window.onload = function() {
     var myCanvas = document.getElementById("myCanvas");
     var ctx = myCanvas.getContext("2d");
@@ -14,7 +17,7 @@ window.onload = function() {
     if (myCanvas) {
         var isDown = false;
         var canvasX, canvasY;
-        ctx.lineWidth = 5;
+        ctx.lineWidth = 3;
 
         $(myCanvas)
             .mousedown(function(e) {
@@ -62,7 +65,7 @@ window.onload = function() {
                 );
 
                 ctx.strokeStyle = "#000";
-                ctx.lineWidth = 5;
+                ctx.lineWidth = 3;
                 ctx.stroke();
             }
 
@@ -81,4 +84,10 @@ window.onload = function() {
     document.body.addEventListener('touchmove', function(evt) {
         evt.preventDefault();
     }, false);
+
 };
+
+clear = document.getElementById('clear');
+clear.addEventListener('click', function() {
+    ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+}, false);
